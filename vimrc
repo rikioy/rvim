@@ -41,6 +41,10 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+
+" NERD 出品的快速给代码加注释的插件，选中，`ctrl+h` 即可注释多种语言代码
+Bundle 'The-NERD-Commenter'
+let NERDShutUp=1    " 支持单行和多行的选择
 "}
 
 " 放置在Bundle的设置后，防止意外Bug
