@@ -7,7 +7,7 @@ filetype off		" required
 set t_Co=256		" 设置256色显示
 set background=dark	" 使用color solarized
 set cursorline		" 设置光标高亮显示
-colorscheme solarized " 主题
+colorscheme molokai " 主题
 "}
 
 " Tab Setting {
@@ -42,9 +42,28 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+" xml格式化插件
+Bundle 'xml.vim'
+
 " NERD 出品的快速给代码加注释的插件，选中，`ctrl+h` 即可注释多种语言代码
 Bundle 'The-NERD-Commenter'
 let NERDShutUp=1    " 支持单行和多行的选择
+
+" NERD 树状窗口 
+Bundle 'The-NERD-tree'
+
+" 代码补全 C C++ 
+" Bundle 'Valloric/YouCompletMe'
+
+" 代码片段插件
+" Bundle 'UltiSnips'
+
+" 快读定位插件
+Bundle 'EasyMotion'
+
+" 让代码更加易于纵向排版，以=或,符号对齐
+Bundle 'Tabular'
+
 "}
 
 " 放置在Bundle的设置后，防止意外Bug
