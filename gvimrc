@@ -1,1 +1,1 @@
-set transparency=5 " 设置透明度
+set transparency=2 " 设置透明度

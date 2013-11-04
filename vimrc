@@ -5,7 +5,7 @@ filetype off		" required
 "set colorcolumn=85	" 彩色显示第85行
 "set cursorcolumn	" 光标垂直高亮
 set t_Co=256		" 设置256色显示
-set background=dark	" 使用color solarized
+" set background=dark	" 使用color solarized
 set cursorline		" 设置光标高亮显示
 colorscheme molokai " 主题
 "}
@@ -25,6 +25,7 @@ set softtabstop=4
 set relativenumber  " 相对行号 想要相对行号起作用要放在显示行号后面
 set wrap            " 自动换行 
 set showmatch       " 显示括号对应
+set laststatus=2    " 总是显示状态行
 "}
 
 " File Setting {
@@ -63,6 +64,12 @@ Bundle 'EasyMotion'
 
 " 让代码更加易于纵向排版，以=或,符号对齐
 Bundle 'Tabular'
+
+" markdown 语法
+Bundle 'plasticboy/vim-markdown'
+
+" 状态栏美化显示插件 osx 下显示效果不好
+" Bundle 'bling/vim-airline'
 
 "}
 
