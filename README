@@ -1,12 +1,8 @@
 安装:
 
-    cd ~
+    mkdir ~/.vim
     
-    mkdir .vim
-    
-    cd .vim
-    
-    git clone https://github.com/rikioy/rvim.git 
+    git clone https://github.com/rikioy/rvim.git ~/.vim
 
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
