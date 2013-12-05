@@ -1,5 +1,11 @@
 安装:
 
+    cd ~
+    
+    mkdir .vim
+    
+    cd .vim
+    
     git clone https://github.com/rikioy/rvim.git 
 
     ln -s ~/.vim/vimrc ~/.vimrc
