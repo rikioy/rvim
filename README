@@ -8,4 +8,8 @@
     ln -s ~/.vim/gvimrc ~/.gvimrc
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    
+    
+    vim-airline 美化插件需要安装powerline-fonts字体。否则输入中文字体的时候会乱码
+    https://powerline.readthedocs.org/en/latest/fontpatching.html
 
