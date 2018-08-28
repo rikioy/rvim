@@ -11,9 +11,7 @@ set autochdir       " 自动切换当前路径
 set t_Co=256		" 设置256色显示
 "set background=dark	" 使用color solarized
 set cursorline		" 设置光标高亮显示
-colorscheme detorte" 主题
-let g:detorte_theme_mode = 'dark'
-let g:zenburn_force_dark_Background=1
+colorscheme detorte " 主题
 "}
 
 " Tab Setting {
@@ -103,6 +101,17 @@ Bundle 'tomtom/tcomment_vim'
 
 " markdown
 Bundle 'gabrielelana/vim-markdown'
+
+Bundle 'joker1007/vim-markdown-quote-syntax'
+
+let g:markdown_quote_syntax_filetypes = {
+    \ "go" : {
+    \   "start" : "go",
+    \},
+    \ "c" : {
+    \   "start" : "c",
+    \},
+\}
 
 "}
 
