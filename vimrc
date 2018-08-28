@@ -9,9 +9,10 @@ set autochdir       " 自动切换当前路径
 "set colorcolumn=85	" 彩色显示第85行
 "set cursorcolumn	" 光标垂直高亮
 set t_Co=256		" 设置256色显示
-set background=dark	" 使用color solarized
+"set background=dark	" 使用color solarized
 set cursorline		" 设置光标高亮显示
-colorscheme zenburn " 主题
+colorscheme detorte" 主题
+let g:detorte_theme_mode = 'dark'
 let g:zenburn_force_dark_Background=1
 "}
 
@@ -87,7 +88,7 @@ let g:EasyMotion_leader_key = 'f'
 Bundle 'Tabular'
 
 " markdown 语法
-Bundle 'plasticboy/vim-markdown'
+" Bundle 'plasticboy/vim-markdown'
 
 " 超强的搜索打开文件插件
 Bundle 'kien/ctrlp.vim'
@@ -99,6 +100,9 @@ Bundle 'bling/vim-airline'
 " 快速注释
 " https://github.com/tomtom/tcomment_vim
 Bundle 'tomtom/tcomment_vim'
+
+" markdown
+Bundle 'gabrielelana/vim-markdown'
 
 "}
 
