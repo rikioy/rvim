@@ -161,6 +161,8 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
+Plugin 'fatih/vim-go'
+
 "}
 
 " 放置在Bundle的设置后，防止意外Bug
