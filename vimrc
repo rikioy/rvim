@@ -71,8 +71,9 @@ let NERDTreeShowLineNumbers=1 " 是否显示行号
 map <F4> :silent! NERDTreeToggle<CR>
 
 " 快读定位插件
-Bundle 'EasyMotion'
-let g:EasyMotion_leader_key = 'f'
+" Bundle 'EasyMotion'
+" let g:EasyMotion_leader_key = 'f'
+Plugin 'justinmk/vim-sneak'
 
 " 让代码更加易于纵向排版，以=或,符号对齐
 Bundle 'Tabular'
