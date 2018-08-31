@@ -71,7 +71,7 @@ let NERDTreeShowLineNumbers=1 " 是否显示行号
 map <F4> :silent! NERDTreeToggle<CR>
 
 " 快读定位插件
-" Bundle 'EasyMotion'
+" Bundle 'EasyMotion' 使用vim-sneak代替
 " let g:EasyMotion_leader_key = 'f'
 Plugin 'justinmk/vim-sneak'
 
@@ -79,7 +79,7 @@ Plugin 'justinmk/vim-sneak'
 Bundle 'Tabular'
 
 " 超强的搜索打开文件插件
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim' 使用fzf代替
 
 " 状态栏美化显示插件 osx 下显示效果不好
 Plugin 'vim-airline/vim-airline'
@@ -163,6 +163,12 @@ let g:tagbar_type_markdown = {
 \ }
 
 Plugin 'fatih/vim-go'
+
+call plug#begin('~/.vim/plugged')
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
+call plug#end()
 
 "}
 
