@@ -40,16 +40,8 @@ set encoding=utf-8  " 编码设置
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " 编码设置
 "}
 
-" Vundle Setting {
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" xml格式化插件
-Bundle 'xml.vim'
+" Plug Setting {
+call plug#begin('~/.vim/plugged')
 
 " 代码片段插件
 " Bundle 'UltiSnips'
@@ -65,7 +57,7 @@ Bundle 'xml.vim'
 " let NERDTreeShowBookmarks=1  " 默认自动显示Bookmarks
 " https://github.com/scrooloose/nerdtree 目录浏览插件
 
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 let NERDTreeShowBookmarks=1 " 默认显示Bookmark
 let NERDTreeShowLineNumbers=1 " 是否显示行号
 map <F4> :silent! NERDTreeToggle<CR>
@@ -73,38 +65,40 @@ map <F4> :silent! NERDTreeToggle<CR>
 " 快读定位插件
 " Bundle 'EasyMotion' 使用vim-sneak代替
 " let g:EasyMotion_leader_key = 'f'
-Plugin 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak'
 
 " 让代码更加易于纵向排版，以=或,符号对齐
-Bundle 'Tabular'
-
-" 超强的搜索打开文件插件
-" Bundle 'kien/ctrlp.vim' 使用fzf代替
+Plug 'godlygeek/tabular'
 
 " 状态栏美化显示插件 osx 下显示效果不好
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 
 " 快速注释
 " https://github.com/tomtom/tcomment_vim
-Bundle 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 
 " markdown
-Bundle 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 
 " 代码补全 C C++
-Bundle 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " Tagbar
-Bundle 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tagbar_width = 30
 autocmd BufReadPost *.go call tagbar#autoopen()
 
+Plug 'fatih/vim-go'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
+
 " markdown中代码显示
-Bundle 'joker1007/vim-markdown-quote-syntax'
+Plug 'joker1007/vim-markdown-quote-syntax'
 let g:markdown_quote_syntax_filetypes = {
     \ "go" : {
     \   "start" : "go",
@@ -162,14 +156,7 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
-Plugin 'fatih/vim-go'
-
-call plug#begin('~/.vim/plugged')
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
 call plug#end()
-
 "}
 
 " 放置在Bundle的设置后，防止意外Bug
