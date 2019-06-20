@@ -11,7 +11,9 @@ set autochdir       " 自动切换当前路径
 "set cursorcolumn	" 光标垂直高亮
 "set background=dark	" 使用color solarized
 set cursorline		" 设置光标高亮显示
-colorscheme detorte " 主题
+" colorscheme detorte " 主题
+colo seoul256
+set background=dark
 "}
 
 " Tab Setting {
@@ -26,7 +28,7 @@ set softtabstop=4
 " Display
 " set number          " 显示行号
 " set guifont=Inconsolata:h18 "GUI界面里的字体 默认有抗锯齿
-set relativenumber  " 相对行号 想要相对行号起作用要放在显示行号后面
+" set relativenumber  " 相对行号 想要相对行号起作用要放在显示行号后面
 set wrap            " 自动换行
 set showmatch       " 显示括号对应
 set laststatus=2    " 总是显示状态行
@@ -40,45 +42,30 @@ set linespace=0
 set encoding=utf-8  " 编码设置
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " 编码设置
 "}
-"
+
 " Map Setting {
+    map <F3> :Ack! -i 
+    " map <F3> :call CheckPHPSyntax()<CR>
+    map <F4> :silent! NERDTreeToggle<CR>
+    nmap <silent> <F5> :TagbarToggle<CR>
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
 " }
 
 " Plug Setting {
 call plug#begin('~/.vim/plugged')
 
-" 代码片段插件
-" Bundle 'UltiSnips'
-
-" NERD 出品的快速给代码加注释的插件，选中，`ctrl+h` 即可注释多种语言代码
-" Bundle 'The-NERD-Commenter' "试用tcomment
-" let NERDShutUp=1    " 支持单行和多行的选择
-" NERD 树状窗口 ctrlp 更强大，所以这个暂时取消不用了
-" Bundle 'The-NERD-tree'
-" autocmd VimEnter * NERDTree  " 程序启动后打开树状窗口
-" map <F2> :NERDTreeToggle<CR> " 按下F2调出隐藏显示NERDTree
-" let NERDTreeWinPos="right"   " 讲 NERDTree 的窗口设置在右侧
-" let NERDTreeShowBookmarks=1  " 默认自动显示Bookmarks
-" https://github.com/scrooloose/nerdtree 目录浏览插件
+" 安心写作插件，
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
 
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowBookmarks=1 " 默认显示Bookmark
-let NERDTreeShowLineNumbers=1 " 是否显示行号
-map <F4> :silent! NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=0 " 是否显示行号
 
 " 快读定位插件 " 使用vim-sneak代替
-" Plug 'EasyMotion' 
-" let g:EasyMotion_leader_key = 'f'
 Plug 'justinmk/vim-sneak'
-
-" 让代码更加易于纵向排版，以=或,符号对齐
-Plug 'godlygeek/tabular'
-"if exists(":Tabularize")
-nmap <Leader>t :Tabularize /=<CR>
-vmap <Leader>t :Tabularize /=<CR>
-" nmap <Leader>t: :Tabularize /:\zs<CR>
-" vmap <Leader>t: :Tabularize /:\zs<CR>
-"endif
 
 " 状态栏美化显示插件 osx 下显示效果不好
 Plug 'vim-airline/vim-airline'
@@ -97,15 +84,34 @@ Plug 'gabrielelana/vim-markdown'
 
 " Tagbar
 Plug 'majutsushi/tagbar'
-nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 let g:tagbar_width = 30
-autocmd BufReadPost *.go call tagbar#autoopen()
+" autocmd BufReadPost *.go call tagbar#autoopen()
 
+" vim 支持Go开发
 Plug 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+
+" https://github.com/junegunn/fzf
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
+
+" ack and ag vim plugin
+Plug 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" 代码排版
+Plug 'junegunn/vim-easy-align'
 
 " markdown中代码显示
 Plug 'joker1007/vim-markdown-quote-syntax'
@@ -220,5 +226,4 @@ function! CheckPHPSyntax()
     silent make
     clist
 endfunction
-map <F3> :call CheckPHPSyntax()<CR>
 " }}}
